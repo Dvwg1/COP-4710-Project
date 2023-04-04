@@ -196,9 +196,108 @@ if (isset($_SESSION["username"])) {
 		</form>
 
 		<h2>Advanced Recommendation:</h2>
-		<p> Perfect you are unsure about what manufacturer you prefer, or perhaps you solely care about ingredients and/or flavor. you can<br>
+		<p> Perfect you are unsure about what manufacturer you prefer, or perhaps you solely care about ingredients and/or flavor. You can<br>
 			also search based on a drink's average rating.<br>
 		</p>
+
+		<form method="post" action="process-advanced1.php">
+			<label for="flavor">Flavor</label>
+    		<select name = "flavor" id="flavor">
+
+				<option value ="N/A">N/A</option>
+        		<?php
+        		foreach($flavA as $item){
+            		echo "<option value='$item'>$item</option>";
+        		}
+        		?>
+    		</select>
+
+    		<!-- prefabricated sql statements -->
+			<label for="caffeine">Caffeine Content (mg)</label>
+			<select name = "caffeine" id="caffeine">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.caffeine_content = '150'">150</option>
+				<option value ="manufacturer_info.caffeine_content BETWEEN '150' AND '200'">150-200</option>
+				<option value ="manufacturer_info.caffeine_content BETWEEN '200' AND '300'">200-300</option>
+				<option value ="manufacturer_info.caffeine_content = '300'">300</option>
+			</select>
+
+			<label for="b12">Vitamin B12 Content (mcg)</label>
+			<select name = "b12" id="b12">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.b12_content = '0'">0</option>
+				<option value ="manufacturer_info.b12_content BETWEEN '1' AND '4'">1-4</option>
+				<option value ="manufacturer_info.b12_content BETWEEN '5' AND '8'">5-8</option>
+				<option value ="manufacturer_info.b12_content BETWEEN '9' AND '12'">9-12</option>
+				<option value ="manufacturer_info.b12_content >= '100'">>= 100</option>
+			</select>
+
+			<label for="bv">B Vitamin Content (mg)</label>
+			<select name = "bv" id="bv">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.b_content = '0'">0</option>
+				<option value ="manufacturer_info.b_content BETWEEN '1' AND '10'">1-10</option>
+				<option value ="manufacturer_info.b_content BETWEEN '11' AND '20'">11-20</option>
+				<option value ="manufacturer_info.b_content BETWEEN '21' AND '30'">21-30</option>
+				<option value ="manufacturer_info.b_content BETWEEN '31' AND '35'">31-35</option>
+			</select>
+
+			<label for="carnitine">Carnitine Content (mg)</label>
+			<select name = "carnitine" id="carnitine">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.carnitine_content = '0'">0</option>
+				<option value ="manufacturer_info.carnitine_content BETWEEN '200' AND '250'">200-250</option>
+				<option value ="manufacturer_info.carnitine_content BETWEEN '251' AND '1000'">>=251-1000</option>
+				<option value ="manufacturer_info.carnitine_content = '1000'">1000</option>
+
+			</select>
+
+			<label for="taurine">Taurine Content (mg)</label>
+			<select name = "taurine" id="taurine">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.taurine_content = '0'">0</option>
+				<option value ="manufacturer_info.taurine_content = '100'">100</option>
+				<option value ="manufacturer_info.taurine_content BETWEEN '101' AND '250'">101-250</option>
+				<option value ="manufacturer_info.taurine_content BETWEEN '251' AND '500'">251-500</option>
+				<option value ="manufacturer_info.taurine_content BETWEEN '251' AND '1000'">501-1000</option>
+				<option value ="manufacturer_info.taurine_content = '1000'">1000</option>
+			</select>
+
+			<label for="beta">Beta Alanine Content (g)</label>
+			<select name = "beta" id="beta">
+				<option value ="N/A">N/A</option>
+				<option value ="manufacturer_info.beta_a_content = '0'">0</option>
+				<option value ="manufacturer_info.beta_a_content >= '1'">yes</option>
+			</select>
+
+			<label for="ratingAvg">Average_Rating</label>
+			<select name = "ratingAvg" id="ratingAvg">
+				<option value ="N/A">N/A</option>
+				<option value ="1">poor(1-2)</option>
+				<option value ="2">subpar(3-4)</option>
+				<option value ="3">good(5-6)</option>
+				<option value ="4">great(7-8)</option>
+				<option value ="3">excellent(9-10)</option>
+			</select>
+
+
+			
+
+			<button>get recommendation!</button>
+
+		</form>
+
+		<h3>Ingredients Information</h3>
+		<p> If you don't know much about what the active ingredients do in an energy drink, thats ok! Here is a quick guide to help you get an<br>
+			advanced recommendation!<br>
+		</p>
+
+		<h4>Caffeine</h4>
+		<h4>Vitamin B12</h4>
+		<h4>B Vitamins (B3, B5, B6)</h4>
+		<h4>Carnitine</h4>
+		<h4>Taurine</h4>
+		<h4>Beta Alanine</h4>
 
 
 
