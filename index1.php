@@ -270,6 +270,7 @@ if (isset($_SESSION["username"])) {
 				<option value ="manufacturer_info.beta_a_content >= '1'">yes</option>
 			</select>
 
+			<!--
 			<label for="ratingAvg">Average_Rating</label>
 			<select name = "ratingAvg" id="ratingAvg">
 				<option value ="N/A">N/A</option>
@@ -278,7 +279,7 @@ if (isset($_SESSION["username"])) {
 				<option value ="3">good(5-6)</option>
 				<option value ="4">great(7-8)</option>
 				<option value ="3">excellent(9-10)</option>
-			</select>
+			</select> -->
 
 
 			

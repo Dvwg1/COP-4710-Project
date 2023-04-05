@@ -1,4 +1,11 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <meta charset="UTF-8">
+</head>
+<body style ="background-color: MediumSpringGreen;">
+    <h1>Energy Drink Recommendations: Advanced</h1>
 <?php
 
 	session_start();
@@ -74,17 +81,31 @@
 	}
 
 
-	/*$query = "SELECT drink_names.drink_name
-			  FROM drink_names, manufacturer_info
-			  WHERE drink_names.manufacturer = manufacturer_info.manufacturer AND  manufacturer_info.caffeine_content = '150'";
-*/
-
 	$result = $mysqli->query($query);
 
-	while ($row = mysqli_fetch_array($result)){
+	/*while ($row = mysqli_fetch_array($result)){
 		echo $row['drink_name'] . " | " ;
-	}
-
+	}*/
 
 
 	?>
+
+	<form method="post" action="moreinfo.php">
+	<label for="drinkname">Drink</label>
+    	<select name = "EnergyDrinkName" id="EnergyDrinkName">
+        	<?php
+
+        		while($row = mysqli_fetch_array($result)){
+        			$drinkname = $row['drink_name'];
+        			echo "<option value='$drinkname'>$drinkname</option>";
+        		}
+        	?>
+    	</select>	
+	<button>Get More Info</button>
+</form>
+
+
+
+    <p><a href="index1.php">Return Home</a></p>
+</body>
+</html>

@@ -10,6 +10,9 @@ $mysqli = require __DIR__ . "/database.php";
 $dname = $_POST["EnergyDrinkName"];
 $uname = $_SESSION["username"];
 
+$rname = $_POST["RatingNumber"];
+$cname = $_POST["comment"];
+
 //checks to see review already exists from that user
 $query = "SELECT * FROM review_information WHERE drink_name = '$dname'";
 $result = $mysqli->query($query);
@@ -20,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
 	$result1 = $mysqli->query($query1);
     
 
-} 
+}
 
 
 //insert into users table
