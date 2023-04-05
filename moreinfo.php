@@ -29,6 +29,7 @@ $drinkname = $_POST['EnergyDrinkName'];
 <body style ="background-color: MediumSpringGreen;">
     <h1>Information on: <?php  echo $drinkname; ?></h1>
 
+
     <h2>User Reviews</h2>
      <table style ="background-color: GhostWhite ;">
         	<tr>
@@ -51,7 +52,22 @@ $drinkname = $_POST['EnergyDrinkName'];
         	</tr>
         </table>
 
-   
+
+    <?php
+        //aggregate query to get average rating of a drink
+        $averageRating = $mysqli->query("SELECT AVG(rating) FROM review_information WHERE drink_name = '$drinkname'");
+        $averageResult = $averageRating->fetch_row()
+    ?>
+    <h3>Average rating: <?php echo $averageResult[0] ?></h3>
+
+
+     <?php
+        $manuInfo = $mysqli->query("SELECT manufacturer FROM drink_names WHERE drink_name = '$drinkname'");
+        $manuResult = $manuInfo->fetch_row()
+    ?>
+    <h3>Manufacturer: <?php echo $manuResult[0] ?></h3>
+
+
 
 </body>
 </html>

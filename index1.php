@@ -133,8 +133,6 @@ if (isset($_SESSION["username"])) {
 
 			<button>Delete Review</button>
 
-
-		
 		</form>
 
 		<h2>Basic Recommendation:</h2>
@@ -145,10 +143,10 @@ if (isset($_SESSION["username"])) {
 		<?php
 
 		//gets manufacturer names to be displayed from manf_info table
-		$manf1ResultSet = $mysqli->query("SELECT * FROM manufacturer_info");
+		$manf1ResultSet = $mysqli->query("SELECT manufacturer FROM manufacturer_info");
 
 		//gets flavor profile instances from drink_names table (including dups)
-		$flavorResultSet = $mysqli->query("SELECT * FROM drink_names");
+		$flavorResultSet = $mysqli->query("SELECT flavor_profile FROM drink_names");
 
 		//flavors array
 		$flavA = array();
@@ -301,8 +299,30 @@ if (isset($_SESSION["username"])) {
 		<h4>Beta Alanine</h4>
 
 
+		<h2>Your Past Recommendations</h2>
 
+		<table style ="background-color: GhostWhite ;">
+        	<tr>
+        		<th>Drink</th>
+        		<th>Timestamp</th>
+        	</tr>
+        	<tr>
+        		<?php
 
+        			$RecResultSet = $mysqli->query("SELECT * FROM recommends WHERE username = '$user1'");
+        			while($rows = $RecResultSet->fetch_assoc()){
+        			echo '<tr>';
+        			echo '<td>'. $rows['drink_name'] .'</td>';
+        			echo '<td>'. $rows['date_time'] .'</td>';
+        			echo '</tr>';
+        			}
+        		?>
+        	</tr>
+        </table>
+
+        <form method="post" action = 'clearHist.php'>
+        	<input type = "submit" name = "Clear History" class="button" value="Clear History" />
+        </form>
 
        
         <p><a href="logout.php">Log out</a></p>
