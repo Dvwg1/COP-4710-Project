@@ -40,6 +40,16 @@ if (isset($_SESSION["username"])) {
         
         <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
 
+        <!-- Allows admin (Dvwg) to edit certain table via php -->
+        <?php if ($_SESSION["username"] == "Dvwg")
+        {
+        	$link_address = "adminAccess.php";
+
+        	echo "<h2>Admin Access</h2>";
+        	echo "<a href='".$link_address."'>click to edit database</a>";
+        }
+        ?>
+
         <h2>Review a drink!</h2>
 
         <?php
@@ -323,6 +333,10 @@ if (isset($_SESSION["username"])) {
         <form method="post" action = 'clearHist.php'>
         	<input type = "submit" name = "Clear History" class="button" value="Clear History" />
         </form>
+
+        
+        
+     
 
        
         <p><a href="logout.php">Log out</a></p>
