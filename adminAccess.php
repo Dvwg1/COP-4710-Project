@@ -62,8 +62,34 @@ $mysqli = require __DIR__ . "/database.php";
 	</form>	
   
     <h3>Remove a Manufacturer</h3>
-    <!-- Removing a manufacturer will also remove all associated drinks -->
+    <p>Make sure to delete all drinks from said manufacturer beforehand!!!<br>
+       Should rarely if ever be executed</p>
+     <?php
 
+		//gets manufacturer names to be displayed from manf_info table
+		$manf2ResultSet = $mysqli->query("SELECT manufacturer FROM manufacturer_info");
+	?>
+
+	<form method="post" action="removeManu.php">
+
+    		<label for="manufacturer2">Manufacturer</label>
+    		<select name = "manufacturer2" id="manufacturer2">
+
+    			<option value ="N/A">N/A</option>
+        		<?php
+        		while($rows = $manf2ResultSet->fetch_assoc()){
+        			$manufacturer1 = $rows['manufacturer'];
+        			echo "<option value='$manufacturer1'>$manufacturer1</option>";
+        		}
+        		?>
+    		</select>
+    	
+    	<button>Submit</button>
+
+    </form>
+
+
+    
     <h2>Edit Drinks</h2>
 
     <h3>Add a Drink</h3>
@@ -103,8 +129,52 @@ $mysqli = require __DIR__ . "/database.php";
     </form>
 
     <h3>Remove a Drink</h3>
+    <?php
+
+		//gets drink names to be displayed from drink name table
+		$drinkResultSet = $mysqli->query("SELECT drink_name FROM drink_names");
+	?>
+
+	<form method="post" action="removeDrink.php">
+
+    	<label for="drink">Drink</label>
+    	<select name = "EnergyDrinkName" id="EnergyDrinkName">
+
+    		<option value ="N/A">N/A</option>
+        	<?php
+        	while($rows = $drinkResultSet->fetch_assoc()){
+        		$drinkname = $rows['drink_name'];
+        		echo "<option value='$drinkname'>$drinkname</option>";
+        	}
+        	?>
+    	</select>
+    
+    	<button>Submit</button>
+    </form>
 
     <h2>Remove Users</h2>
+     <?php
+
+		//gets drink names to be displayed from drink name table
+		$userResultSet = $mysqli->query("SELECT username FROM user");
+	?>
+
+	<form method="post" action="removeUser.php">
+
+    	<label for="drink">Drink</label>
+    	<select name = "username" id="username">
+
+    		<option value ="N/A">N/A</option>
+        	<?php
+        	while($rows = $userResultSet->fetch_assoc()){
+        		$username = $rows['username'];
+        		echo "<option value='$username'>$username</option>";
+        	}
+        	?>
+    	</select>
+    
+    	<button>Submit</button>
+    </form>
 
     <p><a href="index1.php">Return Home</a></p>
 

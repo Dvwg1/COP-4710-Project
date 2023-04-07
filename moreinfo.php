@@ -67,6 +67,36 @@ $drinkname = $_POST['EnergyDrinkName'];
     ?>
     <h3>Manufacturer: <?php echo $manuResult[0] ?></h3>
 
+    <h3>Local Availabilty</h3>
+
+
+    <?php
+        $locationInfo = $mysqli->query("SELECT location FROM user WHERE username = '$user1'");
+        $locationResult = $locationInfo->fetch_row();
+
+        $location = $locationResult[0];
+
+        if(!empty($location)){
+            echo "<h4>your current location is: $location</h4>";
+            echo '<p><a href="availability.php" title="availability">availability near you</a></p>';
+        }
+
+        if(empty($location)){
+            echo "location is not set, click link below to add location";
+        }
+
+        echo '<p><a href="updateLocation.php" title="locationChange">update location</a></p>';
+
+
+
+    ?>
+
+
+
+
+
+
+
 
 
 </body>
