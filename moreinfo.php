@@ -67,7 +67,7 @@ $drinkname = $_POST['EnergyDrinkName'];
     ?>
     <h3>Manufacturer: <?php echo $manuResult[0] ?></h3>
 
-    <h3>Local Availabilty</h3>
+    <h2>Local Availabilty</h2>
 
 
     <?php
@@ -82,14 +82,26 @@ $drinkname = $_POST['EnergyDrinkName'];
         }
 
         if(empty($location)){
-            echo "location is not set, click link below to add location";
+            echo "location is not set, enter location below for availability near you";
         }
 
-        echo '<p><a href="updateLocation.php" title="locationChange">update location</a></p>';
-
+       
 
 
     ?>
+
+
+    <h3>Update location</h3>
+
+     <form action="process-location.php" method="post" >
+        <div>
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location">
+        </div>
+
+        <button>Submit</button>
+
+    </form>
 
 
 
@@ -104,7 +116,5 @@ $drinkname = $_POST['EnergyDrinkName'];
 
 
 <?php
-//not a smooth way to get the user back to either advanced or basic recommendations, but it works
-//you just have to reload the error page twice lol
 echo '<p><a href="javascript:history.go(-1)" title="Return to previous page">« Go back</a></p>';
 ?>
