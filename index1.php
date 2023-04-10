@@ -31,14 +31,23 @@ if (isset($_SESSION["username"])) {
 	th, td {
   		padding: 4px;
 	}
+
+	h1 {
+		text-align: center;
+	}
 	</style>
 </head>
 <body style ="background-color: MediumSpringGreen;">
-    <h1>Low Cal Energy Drink Recommendations: Home</h1>
+    <h1>Low Cal Energy Drink Recommendations</h1>
     
     <?php if (isset($user)): ?>
         
-        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
+        <h3>Hello <?= htmlspecialchars($user["name"]) ?></h3>
+
+        <!-- link to where user can change username and/or password -->
+        <a href="user-settings.php">
+  			<button>Profile Settings</button>
+		</a>
 
         <!-- Allows admin (Dvwg) to edit certain table via php -->
         <?php if ($_SESSION["username"] == "Dvwg")
@@ -49,6 +58,48 @@ if (isset($_SESSION["username"])) {
         	echo "<a href='".$link_address."'>click to edit database</a>";
         }
         ?>
+
+    	<h2>About</h2>
+	
+		<p>This website can provide you with a low calorie energy drink recommendation based on desired manufacturer, flavor, and/or ingredients. Information<br>
+	 	is also provided on ingredient effects and effacacious dosages.</p>
+
+
+		<p>DISCLAIMER: This website does not provide medical advice, and energy drinks should only be consumed by healthy individuals in moderation.<br>
+	 	We are not affiliated with any of the manufacturers and vendors. The intention of this website is solely to give energy drink suggestions based on user parameters.<p>
+
+	 	<h2>Manufacturers and Ingredients</h2>
+	 	<table style ="background-color: GhostWhite ;">
+        	<tr>
+        		<th>Manufacturer</th>
+        		<th>Caffeine (mg)</th>
+        		<th>B12 (mcg)</th>
+        		<th>B Vitamins (mg)</th>
+        		<th>Carnitine (mg)</th>
+        		<th>Taurine (mg)</th>
+        		<th>Beta Alanine (g)</th>
+        	</tr>
+        	<tr>
+        		<?php
+
+        			//displays manufacturers and their ames 
+        			$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
+        			while($rows = $diffManus->fetch_assoc()){
+        			echo '<tr>';
+        			echo '<td>'. $rows['manufacturer'] .'</td>';
+        			echo '<td>'. $rows['caffeine_content'] .'</td>';
+        			echo '<td>'. $rows['b12_content'] .'</td>';
+        			echo '<td>'. $rows['b_content'] .'</td>';
+        			echo '<td>'. $rows['carnitine_content'] .'</td>';
+        			echo '<td>'. $rows['taurine_content'] .'</td>';
+        			echo '<td>'. $rows['beta_a_content'] .'</td>';
+        			echo '</tr>';
+        			}
+        		?>
+        	</tr>
+        </table>
+	 		
+
 
         <h2>Review a drink!</h2>
 
@@ -108,7 +159,8 @@ if (isset($_SESSION["username"])) {
         	<tr>
         		<?php
 
-        			$ReviewsResultSet = $mysqli->query("SELECT * FROM review_information WHERE username = '$user1'");
+        			//shows only top five, users have to click link to see more
+        			$ReviewsResultSet = $mysqli->query("SELECT * FROM review_information WHERE username = '$user1' LIMIT 5");
         			while($rows = $ReviewsResultSet->fetch_assoc()){
         			echo '<tr>';
         			echo '<td>'. $rows['drink_name'] .'</td>';
@@ -119,6 +171,13 @@ if (isset($_SESSION["username"])) {
         		?>
         	</tr>
         </table>
+
+		<div>
+        <a href="user-reviews.php">
+  			<button>Click to see all reviews</button>
+		</a>
+		</div>
+
 
         <h3>Delete a Review:</h3>
 		<?php
@@ -307,6 +366,9 @@ if (isset($_SESSION["username"])) {
 		<h4>Carnitine</h4>
 		<h4>Taurine</h4>
 		<h4>Beta Alanine</h4>
+
+		<h3>Sources Cited</h3>
+		<p style="font-size:80%;">testing</p>
 
 
 		<h2>Your Past Recommendations</h2>

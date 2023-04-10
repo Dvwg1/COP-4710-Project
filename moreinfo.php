@@ -14,7 +14,7 @@ $drinkname = $_POST['EnergyDrinkName'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>More Info</title>
     <meta charset="UTF-8">
     <style>
 	table, th, td {

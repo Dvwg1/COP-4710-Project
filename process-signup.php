@@ -15,6 +15,10 @@ if( preg_match('/\s/', $_POST["username"]))
 	die("Please do not use whitespaces in username");
 	exit;
 }
+if( strlen($_POST["username"]) > 30){
+	die("Max length for username is 30 characters.");
+	exit;
+}
 
 //email validation
 if( !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {

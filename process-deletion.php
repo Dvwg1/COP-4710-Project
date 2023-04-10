@@ -15,5 +15,5 @@ $query1 = "DELETE FROM review_information WHERE drink_name  = '$dname' AND usern
 $result1 = $mysqli->query($query1);
 
 
-header("Location: index1.php");
+header("Location: user-reviews.php");
 //exit;
