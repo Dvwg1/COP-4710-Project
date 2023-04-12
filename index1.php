@@ -68,7 +68,8 @@ if (isset($_SESSION["username"])) {
 		<p>DISCLAIMER: This website does not provide medical advice, and energy drinks should only be consumed by healthy individuals in moderation.<br>
 	 	We are not affiliated with any of the manufacturers and vendors. The intention of this website is solely to give energy drink suggestions based on user parameters.<p>
 
-	 	<h2>Manufacturers and Ingredients</h2>
+	 	<h2>Manufacturers</h2>
+	 	<!--
 	 	<table style ="background-color: GhostWhite ;">
         	<tr>
         		<th>Manufacturer</th>
@@ -78,26 +79,41 @@ if (isset($_SESSION["username"])) {
         		<th>Carnitine (mg)</th>
         		<th>Taurine (mg)</th>
         		<th>Beta Alanine (g)</th>
+        		
         	</tr>
         	<tr>
         		<?php
 
         			//displays manufacturers and their ames 
-        			$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
-        			while($rows = $diffManus->fetch_assoc()){
-        			echo '<tr>';
-        			echo '<td>'. $rows['manufacturer'] .'</td>';
-        			echo '<td>'. $rows['caffeine_content'] .'</td>';
+        			//$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
+        			//while($rows = $diffManus->fetch_assoc()){
+        			//echo '<tr>';
+        			//echo '<td>'. $rows['manufacturer'] .'</td>';
+        			/*echo '<td>'. $rows['caffeine_content'] .'</td>';
         			echo '<td>'. $rows['b12_content'] .'</td>';
         			echo '<td>'. $rows['b_content'] .'</td>';
         			echo '<td>'. $rows['carnitine_content'] .'</td>';
         			echo '<td>'. $rows['taurine_content'] .'</td>';
-        			echo '<td>'. $rows['beta_a_content'] .'</td>';
-        			echo '</tr>';
-        			}
+        			echo '<td>'. $rows['beta_a_content'] .'</td>';*/
+        			//echo '</tr>';
+        			//}
         		?>
         	</tr>
-        </table>
+        </table> -->
+        <ul>
+        	<?php
+        		$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
+        		while($rows = $diffManus->fetch_assoc()){
+        			echo '<li>'. $rows['manufacturer'] . '</td>';
+        		}
+        	?>
+        </ul>
+        			
+
+
+
+
+
 	 		
 
 
