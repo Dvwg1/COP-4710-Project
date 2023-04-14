@@ -9,7 +9,9 @@ $mysqli = require __DIR__ . "/database.php";
 
 $uname = $_SESSION["username"];
 
-$location = $_POST["location"];
+$location = $_POST["location1"];
+
+//echo "$location";
 
 //uses UPDATE to update location
 $query = "UPDATE user SET location = '$location' WHERE username  = '$uname'";

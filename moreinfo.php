@@ -9,6 +9,9 @@ $mysqli = require __DIR__ . "/database.php";
 
 //gets energy drink to display to user + fetch review based information
 $drinkname = $_POST['EnergyDrinkName'];
+
+//session variable that stores drinkname
+$_SESSION["drinkname"] =$drinkname;
 ?>
 
 <!DOCTYPE html>
@@ -63,9 +66,12 @@ $drinkname = $_POST['EnergyDrinkName'];
 
      <?php
         $manuInfo = $mysqli->query("SELECT manufacturer FROM drink_names WHERE drink_name = '$drinkname'");
-        $manuResult = $manuInfo->fetch_row()
+        $manuResult = $manuInfo->fetch_row();
+
+        //makes global variable of the manufacturer
+        $_SESSION["manu"] = $manuResult[0];
     ?>
-    <h3>Manufacturer: <?php echo $manuResult[0] ?></h3>
+    <h2>Manufacturer: <?php echo $manuResult[0] ?></h2>
 
     <h2>Local Availabilty</h2>
 
@@ -76,27 +82,39 @@ $drinkname = $_POST['EnergyDrinkName'];
 
         $location = $locationResult[0];
 
+
+        //stores location globally to be used for availability
+        $_SESSION["location"] = $location;
+        
+
+
         if(!empty($location)){
-            echo "<h4>your current location is: $location</h4>";
+            echo "<h3>your current location is: $location</h3>";
             echo '<p><a href="availability.php" title="availability">availability near you</a></p>';
+            
+        }
+        if(empty($location)){
+
+            echo '<p>location is not set, enter location below for availability near you</p>';
         }
 
-        if(empty($location)){
-            echo "location is not set, enter location below for availability near you";
-        }
+    ?>
+        
 
        
 
 
-    ?>
+    
 
 
     <h3>Update location</h3>
 
+    <p>For location, please enter state as well if in the US</p>
+
      <form action="process-location.php" method="post" >
         <div>
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location">
+            <label for="location1">Location</label>
+            <input type="text" id="location1" name="location1">
         </div>
 
         <button>Submit</button>

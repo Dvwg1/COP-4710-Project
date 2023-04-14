@@ -49,6 +49,7 @@ if (isset($_SESSION["username"])) {
   			<button>Profile Settings</button>
 		</a>
 
+		
         <!-- Allows admin (Dvwg) to edit certain table via php -->
         <?php if ($_SESSION["username"] == "Dvwg")
         {
@@ -69,37 +70,7 @@ if (isset($_SESSION["username"])) {
 	 	We are not affiliated with any of the manufacturers and vendors. The intention of this website is solely to give energy drink suggestions based on user parameters.<p>
 
 	 	<h2>Manufacturers</h2>
-	 	<!--
-	 	<table style ="background-color: GhostWhite ;">
-        	<tr>
-        		<th>Manufacturer</th>
-        		<th>Caffeine (mg)</th>
-        		<th>B12 (mcg)</th>
-        		<th>B Vitamins (mg)</th>
-        		<th>Carnitine (mg)</th>
-        		<th>Taurine (mg)</th>
-        		<th>Beta Alanine (g)</th>
-        		
-        	</tr>
-        	<tr>
-        		<?php
-
-        			//displays manufacturers and their ames 
-        			//$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
-        			//while($rows = $diffManus->fetch_assoc()){
-        			//echo '<tr>';
-        			//echo '<td>'. $rows['manufacturer'] .'</td>';
-        			/*echo '<td>'. $rows['caffeine_content'] .'</td>';
-        			echo '<td>'. $rows['b12_content'] .'</td>';
-        			echo '<td>'. $rows['b_content'] .'</td>';
-        			echo '<td>'. $rows['carnitine_content'] .'</td>';
-        			echo '<td>'. $rows['taurine_content'] .'</td>';
-        			echo '<td>'. $rows['beta_a_content'] .'</td>';*/
-        			//echo '</tr>';
-        			//}
-        		?>
-        	</tr>
-        </table> -->
+	 	
         <ul>
         	<?php
         		$diffManus = $mysqli->query("SELECT * FROM manufacturer_info");
@@ -109,13 +80,6 @@ if (isset($_SESSION["username"])) {
         	?>
         </ul>
         			
-
-
-
-
-
-	 		
-
 
         <h2>Review a drink!</h2>
 
