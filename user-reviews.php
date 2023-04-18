@@ -28,6 +28,84 @@ $user1 = $_SESSION["username"];
 <body style ="background-color: MediumSpringGreen;">
     <h1>All Past Reviews:</h1>
 
+<h2>Review a drink!</h2>
+
+    <?php
+
+    $drink_namesResultSet = $mysqli->query("SELECT drink_name FROM drink_names");
+
+    ?>
+
+    <form method="post" action="process-review.php">
+
+        <label for="drinkname">Drink</label>
+        <select name = "EnergyDrinkName" id="EnergyDrinkName">
+            <?php
+
+            while($rows = $drink_namesResultSet->fetch_assoc()){
+                $drinkname = $rows['drink_name'];
+                echo "<option value='$drinkname'>$drinkname</option>";
+            }
+            ?>
+        </select>   
+
+
+        <label for="review">Comment</label>
+        <input type="text" id="comment" name="comment">
+        
+        <label for="rating">Rating</label>
+        <select name = "RatingNumber" id="RatingNumber">
+            <option value ="1">1</option>
+            <option value ="2">2</option>
+            <option value ="3">3</option>
+            <option value ="4">4</option>
+            <option value ="5">5</option>
+            <option value ="6">6</option>
+            <option value ="7">7</option>
+            <option value ="8">8</option>
+            <option value ="9">9</option>
+            <option value ="10">10</option>
+        </select>
+            
+
+        <button>submit review</button>
+
+
+        
+    </form>
+
+
+<h2>Delete a Review:</h2>
+    <?php
+
+    //ensures only energy drinks reviewed by said user are displayed
+    $drink_namesResultSet = $mysqli->query("SELECT drink_name FROM review_information WHERE username ='$user1'");
+
+    ?>
+
+    
+    <form method="post" action="process-deletion.php">
+
+        <label for="drinkname">Drink</label>
+        <select name = "EnergyDrinkName" id="EnergyDrinkName">
+            <?php
+
+            while($rows = $drink_namesResultSet->fetch_assoc()){
+                $drinkname = $rows['drink_name'];
+                echo "<option value='$drinkname'>$drinkname</option>";
+            }
+            ?>
+        </select>   
+
+        <button>Delete Review</button>
+        
+
+    </form>
+
+
+
+
+
 <table style ="background-color: GhostWhite ;">
     <tr>
         <th>Drink</th>
@@ -50,30 +128,7 @@ $user1 = $_SESSION["username"];
         </tr>
 </table>
 
-<h3>Delete a Review:</h3>
-    <?php
 
-    //ensures only energy drinks reviewed by said user are displayed
-    $drink_namesResultSet = $mysqli->query("SELECT drink_name FROM review_information WHERE username ='$user1'");
-
-    ?>
-
-    <form method="post" action="process-deletion.php">
-
-        <label for="drinkname">Drink</label>
-        <select name = "EnergyDrinkName" id="EnergyDrinkName">
-            <?php
-
-            while($rows = $drink_namesResultSet->fetch_assoc()){
-                $drinkname = $rows['drink_name'];
-                echo "<option value='$drinkname'>$drinkname</option>";
-            }
-            ?>
-        </select>   
-
-        <button>Delete Review</button>
-
-    </form>
 
 
  <p><a href="index1.php">Return Home</a></p>

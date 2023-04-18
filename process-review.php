@@ -48,5 +48,5 @@ $stmt->bind_param("ssis",
 $stmt->execute();
 
 
-header("Location: index1.php");
+header("Location: user-reviews.php");
 //exit;

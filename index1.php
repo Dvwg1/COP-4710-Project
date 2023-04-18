@@ -81,11 +81,11 @@ if (isset($_SESSION["username"])) {
         </ul>
         			
 
-        <h2>Review a drink!</h2>
+        <!--<h2>Review a drink!</h2>
 
         <?php
 
-        $drink_namesResultSet = $mysqli->query("SELECT drink_name FROM drink_names");
+        //$drink_namesResultSet = $mysqli->query("SELECT drink_name FROM drink_names");
 
         ?>
 
@@ -95,10 +95,10 @@ if (isset($_SESSION["username"])) {
     		<select name = "EnergyDrinkName" id="EnergyDrinkName">
         		<?php
 
-        		while($rows = $drink_namesResultSet->fetch_assoc()){
-        			$drinkname = $rows['drink_name'];
-        			echo "<option value='$drinkname'>$drinkname</option>";
-        		}
+        		//while($rows = $drink_namesResultSet->fetch_assoc()){
+        			//$drinkname = $rows['drink_name'];
+        			//echo "<option value='$drinkname'>$drinkname</option>";
+        		//}
         		?>
     		</select>	
 
@@ -123,11 +123,9 @@ if (isset($_SESSION["username"])) {
 
 			<button>submit review</button>
 
+		</form> -->
 
-		
-		</form>
-
-		<h3>Your Past Reviews:</h3>
+		<h2>Your Reviews:</h2>
 
 		
         <table style ="background-color: GhostWhite ;">
@@ -154,16 +152,16 @@ if (isset($_SESSION["username"])) {
 
 		<div>
         <a href="user-reviews.php">
-  			<button>Click to see all reviews</button>
+  			<button>Click to see and edit all reviews</button>
 		</a>
 		</div>
 
 
-        <h3>Delete a Review:</h3>
+        <!--<h3>Delete a Review:</h3>
 		<?php
 
 		//ensures only energy drinks reviewed by said user are displayed
-        $drink_namesResultSet = $mysqli->query("SELECT drink_name FROM review_information WHERE username ='$user1'");
+        //$drink_namesResultSet = $mysqli->query("SELECT drink_name FROM review_information WHERE username ='$user1'");
 
         ?>
 
@@ -173,16 +171,16 @@ if (isset($_SESSION["username"])) {
     		<select name = "EnergyDrinkName" id="EnergyDrinkName">
         		<?php
 
-        		while($rows = $drink_namesResultSet->fetch_assoc()){
-        			$drinkname = $rows['drink_name'];
-        			echo "<option value='$drinkname'>$drinkname</option>";
-        		}
+        		//while($rows = $drink_namesResultSet->fetch_assoc()){
+        			//$drinkname = $rows['drink_name'];
+        			//echo "<option value='$drinkname'>$drinkname</option>";
+        		//}
         		?>
     		</select>	
 
 			<button>Delete Review</button>
 
-		</form>
+		</form> -->
 
 		<h2>Basic Recommendation:</h2>
 		<p>These recommendations are based on manufacturer and/or flavor desired, perfect if you already know which manufacturer you prefer<br>
@@ -335,7 +333,7 @@ if (isset($_SESSION["username"])) {
 
 		</form>
 
-		<h3>Ingredients Information</h3>
+		<h2>Ingredients Information</h2>
 		<p> If you don't know much about what the active ingredients do in an energy drink, thats ok! Here is a quick guide to help you get an<br>
 			advanced recommendation!<br>
 		</p>

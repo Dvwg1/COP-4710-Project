@@ -35,6 +35,9 @@ $user = $result->fetch_assoc();
     </p>
     <h2>Set Location</h2>
     <p><?php  echo $user["location"]; ?></p>
+        <a href="location-change.php">
+            <button>Click to update location</button>
+        </a>
 
     <h2>Password</h2>
     <a href="password-change.php">
