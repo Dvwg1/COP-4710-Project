@@ -294,7 +294,7 @@ if (isset($_SESSION["username"])) {
 				<option value ="N/A">N/A</option>
 				<option value ="manufacturer_info.carnitine_content = '0'">0</option>
 				<option value ="manufacturer_info.carnitine_content BETWEEN '200' AND '250'">200-250</option>
-				<option value ="manufacturer_info.carnitine_content BETWEEN '251' AND '1000'">>=251-1000</option>
+				<option value ="manufacturer_info.carnitine_content BETWEEN '251' AND '1000'">251-1000</option>
 				<option value ="manufacturer_info.carnitine_content = '1000'">1000</option>
 
 			</select>
@@ -341,14 +341,46 @@ if (isset($_SESSION["username"])) {
 		</p>
 
 		<h4>Caffeine</h4>
-		<h4>Vitamin B12</h4>
-		<h4>B Vitamins (B3, B5, B6)</h4>
-		<h4>Carnitine</h4>
-		<h4>Taurine</h4>
-		<h4>Beta Alanine</h4>
+		<p>Caffeine is a naturally occuring substance that can be found in coffee beans, tea leaves, kola nuts, cacao nuts, and guarana. Caffeine<br>
+			is a stimulant which gives users a sort of "boost of energy", and can make one feel awake. Its effects can last 4-6 hours, and it is<br>
+			commonly taken in the form of coffee or energy drinks for purposes of work, studying, and exercise. Side effects can include insomnia,<br>
+			headaches, high blood pressure, anxiety, dependency, fast heart rate, and dehydration. The daily FDA recommended limit is 400 mg.<br>
+		</p>
 
-		<h3>Sources Cited</h3>
-		<p style="font-size:80%;">testing</p>
+		<h4>Vitamin B12</h4>
+		<p>Vitamin B12 is a essential vitamin that is typically found in animal foods, and is usually added to cereals and energy drinks. B12's<br>
+		   is used by the body for red blood cell production and central nervous system (CNS) maintenenance. B12 is added to energy drinks as it<br>
+		   is thought to convert certain macronutrients into energy. Side effects associated with B12 deficiency can include anemia, weakness, <br>
+		   loss of balance, numbness, and tingling in the arms and legs. The daily FDA recommended limit for adults is 2.4 mcg.<br>
+		 </p>
+
+		<h4>B Vitamins (B3, B5, B6)</h4>
+		<P> While all B vitamins have their own specific role, B3 (also commonly known as niacin), B5, and B6 are common in energy drinks as<br>
+			they help the body use and get energy from foods consumed. They are also used in cell production. Lack of any of these vitamins can<br>
+			have detrimental side effects, and the same could be said about overconsumption. For instance, too much niacin can result in niacin<br>
+			poisoning. The daily FDA recommended limit for niacin for adults is 16 mg, 5 mg for B5, and 1.7 mg for B6.<br>
+		</P>
+
+		<h4>Carnitine</h4>
+		<p> Carnitine is a vitamin like nutrient needed to help cells convert fatty acids into energy. This is the main reason it can be found<br>
+			in some energy drinks. Carnitine deficiency can result in confusion, vomiting, muscle weakness, and low blood sugar. For adults, it<br>
+			is easy to obtain and may not be needed as much as other nutrients, so there is no recommended limit (at least that I could find).<br>
+		</p>
+
+		<h4>Taurine</h4>
+		<p> Taurine is an amino acid that can be both found in animal foods and produced by the body. As such, deficiency is unlikely in healthy<br>
+			adults. Taurine helps the body regulate hydration and electrolytes, regulate certain minerals, assist with CNS and eye function, and<br>
+			help the immune system function properly. It also has anti-inflammatory properties and plays a role in energy conversion.<br>
+			The European Food Safety Authority (EFSA) suggets one can safely consume up to 6 grams daily.<br>
+		</p>
+
+		<h4>Beta-Alanine</h4>
+		<p> Beta-alanine is a non-essential amino acid that is used alongside histidine to produce carnosine, which is then used by the body to<br>
+			reduce lactic acid from accumulating in the muscles during strenous activities such as exercise. A common side effect which many find<br>
+			to be favorably is that it can cause the sensation of tingling or itchiness under the skin. An effacious dose is 2-3.5 g, and the daily<br>
+			recommeded dosage is 2-5 g daily.<br>
+		</p>
+
 
 
 		<h2>Your Past Recommendations</h2>
