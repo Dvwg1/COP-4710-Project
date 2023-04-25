@@ -23,12 +23,12 @@ if(empty($_POST["flavor_profile"])){
 
 
 $drink = $_POST["drink_name"];
-//checks to see if manufacturer already inserted
+//checks to see if drink already inserted
 $query = "SELECT * FROM drink_names WHERE drink_name = '$drink'";
 $result = $mysqli->query($query);
 if ($result) {
     if (mysqli_num_rows($result) > 0) {
-    	//if found, user is told to try another manufacturer
+    	//if found, user is told to try another drink
         echo 'Drink already exists! please try again.!';
         exit;
     } 
